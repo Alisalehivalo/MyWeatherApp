@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="25dp"
+    android:gravity="center"
+    android:background="@drawable/bg_gradient"
+    tools:context=".StartActivity">
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weather Application"
+        android:textColor="#FFEB3B"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Created by:"
+        android:textColor="#C1E7F8"
+        android:layout_below="@id/txt1"
+        android:textSize="30sp"
+        android:id="@+id/txt2"/>
+
+    <TextView
+        android:layout_below="@id/txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:text="Ali Akbar Salehi"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+
+</RelativeLayout>
