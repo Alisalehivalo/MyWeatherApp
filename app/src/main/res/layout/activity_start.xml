@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:padding="25dp"
     android:gravity="center"
-    android:background="@drawable/bg_gradient"
+    android:background="@drawable/bg_gradient2"
     tools:context=".StartActivity">
 
     <TextView

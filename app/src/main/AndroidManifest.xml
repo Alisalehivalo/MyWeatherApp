@@ -11,7 +11,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartActivity"
+        <activity android:name=".CityListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomTheme"></activity>
+        <activity
+            android:name=".CityActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomTheme"></activity>
+        <activity android:name=".NextDaysActivity" />
+        <activity
+            android:name=".ForecastActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomTheme" />
+        <activity
+            android:name=".StartActivity"
             android:screenOrientation="portrait"
             android:theme="@style/CustomTheme">
             <intent-filter>
@@ -23,9 +36,7 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/CustomTheme">
-
-        </activity>
+            android:theme="@style/CustomTheme" />
     </application>
 
 </manifest>

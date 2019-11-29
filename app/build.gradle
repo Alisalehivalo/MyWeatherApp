@@ -34,5 +34,10 @@ dependencies {
     implementation 'com.github.androdocs:Simple-HTTP-Request:v1.0'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.loopj.android:android-async-http:1.4.9'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.github.arimorty:floatingsearchview:2.1.1'
 
 }

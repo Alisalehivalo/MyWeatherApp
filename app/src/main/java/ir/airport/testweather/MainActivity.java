@@ -3,6 +3,7 @@ package ir.airport.testweather;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,10 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     String API= "a38b4cc3b8814928ea2cbc6850d35c40";
-    EditText edtCity;
-    String CITY="Tehran,ir";
+    String City;
 
-    Button btnS;
+
+
+    Button btnF;
     TextView addressTxt, updated_atTxt, statusTxt, tempTxt, temp_minTxt, temp_maxTxt, sunriseTxt,
             sunsetTxt, windTxt, pressureTxt, humidityTxt;
 
@@ -34,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        edtCity=findViewById(R.id.edtCity);
+
+        btnF=findViewById(R.id.btnF);
 
 
                 addressTxt = findViewById(R.id.address);
@@ -49,14 +52,20 @@ public class MainActivity extends AppCompatActivity {
                 pressureTxt = findViewById(R.id.pressure);
                 humidityTxt = findViewById(R.id.humidity);
 
-                btnS=findViewById(R.id.btnS);
 
-                btnS.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+
 
                         weatherTask weather=new weatherTask();
                         weather.execute();
+
+                btnF.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i=new Intent(MainActivity.this,ForecastActivity.class);
+                        i.putExtra("City", City);
+                        startActivity(i);
+
+
                     }
                 });
 
@@ -73,13 +82,15 @@ public class MainActivity extends AppCompatActivity {
             findViewById(R.id.loader).setVisibility(View.VISIBLE);
             findViewById(R.id.mainContainer).setVisibility(View.GONE);
             findViewById(R.id.errorText).setVisibility(View.GONE);
-            CITY=edtCity.getText().toString();
+            Intent intent=getIntent();
+            City = intent.getStringExtra("City");
         }
 
         protected String doInBackground(String... args) {
 
 
-            String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API);
+            String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + City + "&units=metric&appid=" + API);
+            Log.d("url",response);
             return response;
         }
 
@@ -108,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 String weatherDescription = weather.getString("description");
 
                 String address = jsonObj.getString("name") + ", " + sys.getString("country");
+                Log.d("m",address);
 
 
                 /* Populating extracted data into our views */
